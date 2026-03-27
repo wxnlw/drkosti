@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Праздничный плов</title>
+    <meta name="description" content="Пиксельная праздничная мини-игра ко дню рождения." />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen screen--start" id="startScreen">
+        <div class="hero pixel-panel">
+          <div class="hero__shine"></div>
+          <p class="hero__label" id="heroLabel"></p>
+          <h1 class="hero__title" id="heroTitle"></h1>
+          <p class="hero__subtitle" id="heroSubtitle"></p>
+          <button class="pixel-button pixel-button--primary" id="startButton" type="button"></button>
+        </div>
+      </section>
+
+      <section class="screen screen--game is-hidden" id="gameScreen">
+        <div class="game-shell">
+          <div class="scene" id="scene">
+            <div class="birthday-banner" id="birthdayBanner">Костя, С ДНЁМ РОЖДЕНИЯ</div>
+            <div class="party party--left"></div>
+            <div class="party party--right"></div>
+            <div class="lights"></div>
+            <div class="confetti confetti--a"></div>
+            <div class="confetti confetti--b"></div>
+            <div class="confetti confetti--c"></div>
+            <div class="toy toy--star"></div>
+            <div class="toy toy--gift"></div>
+
+            <button class="chest-button" id="chestButton" type="button">Сундук</button>
+            <button class="task-button" id="taskButton" type="button"></button>
+
+            <div class="toast" id="feedback"></div>
+
+            <div class="kitchen-counter"></div>
+            <div class="kitchen-floor"></div>
+
+            <section class="prep-station">
+              <div class="station-label">Подготовка</div>
+              <div class="prep-board" id="prepBoard">
+                <div class="board-surface" id="boardSurface"></div>
+                <div class="board-effects" id="boardEffects"></div>
+              </div>
+              <div class="prep-tray" id="prepTray"></div>
+            </section>
+
+            <section class="kazan-station">
+              <div class="station-label station-label--center">Казан</div>
+              <div class="tool-column">
+                <div class="tool tool--lid" id="lidTool"></div>
+                <div class="tool tool--ladle" id="ladleTool"></div>
+              </div>
+              <div class="stove" id="stove">
+                <div class="stove__flame is-off" id="flame"></div>
+                <div class="kazan" id="kazan">
+                  <div class="kazan__lid is-hidden" id="kazanLid"></div>
+                  <div class="kazan__content" id="kazanContent"></div>
+                  <div class="kazan__steam is-hidden" id="kazanSteam"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="plate-station">
+              <div class="station-label station-label--right">Подача</div>
+              <div class="plate" id="plate">
+                <div class="plate__food is-hidden" id="plateFood"></div>
+              </div>
+            </section>
+
+            <div class="inventory-modal is-hidden" id="inventoryModal">
+              <div class="inventory-modal__backdrop" id="inventoryBackdrop"></div>
+              <div class="inventory-modal__panel pixel-panel">
+                <div class="inventory-modal__header">
+                  <h2>Сундук с продуктами</h2>
+                  <button class="pixel-button pixel-button--ghost inventory-close" id="inventoryClose" type="button">Закрыть</button>
+                </div>
+                <div class="inventory-grid" id="inventoryGrid"></div>
+              </div>
+            </div>
+
+            <div class="task-modal is-hidden" id="taskModal">
+              <div class="task-modal__backdrop" id="taskBackdrop"></div>
+              <div class="task-modal__panel pixel-panel">
+                <div class="task-modal__header">
+                  <h2>Текущее задание</h2>
+                  <button class="pixel-button pixel-button--ghost inventory-close" id="taskClose" type="button">Закрыть</button>
+                </div>
+                <p class="task-modal__text" id="taskModalText"></p>
+              </div>
+            </div>
+
+            <button class="pixel-button pixel-button--ghost scene-restart" id="restartButton" type="button"></button>
+          </div>
+        </div>
+
+        <div class="modal is-hidden" id="finalModal">
+          <div class="modal__backdrop" id="modalBackdrop"></div>
+          <div class="modal__card pixel-panel">
+            <div class="modal__stickers" aria-hidden="true">
+              <span class="modal-sticker modal-sticker--balloon"></span>
+              <span class="modal-sticker modal-sticker--gift"></span>
+              <span class="modal-sticker modal-sticker--spark"></span>
+            </div>
+            <p class="modal__badge" id="finalBadge"></p>
+            <h2 class="modal__title" id="finalTitle"></h2>
+            <p class="modal__subtitle" id="finalSubtitle"></p>
+
+            <div class="gift-card pixel-box">
+              <h3 class="gift-card__title" id="giftTitle"></h3>
+              <p class="gift-card__text" id="giftDescription"></p>
+              <p class="gift-card__text" id="giftAdditionalMessage"></p>
+              <p><span id="giftLoginLabel"></span>: <strong id="giftLogin"></strong></p>
+              <p><span id="giftPasswordLabel"></span>: <strong id="giftPassword"></strong></p>
+            </div>
+
+            <p class="modal__greeting" id="finalGreeting"></p>
+
+            <div class="modal__actions">
+              <button class="pixel-button pixel-button--ghost" id="playAgainButton" type="button"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+    <script src="./app-config.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
